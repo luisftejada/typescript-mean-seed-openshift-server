@@ -38,9 +38,12 @@ app.get('/env', function (req, res) {
     '  <body>\n<br/>\n' + content + '</body>\n</html>');
 });
 
+class HttpError extends Error {
+    status;
+}
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  var err = new Error('Not Found');
+  var err = new HttpError('Not Found');
   err.status = 404;
   next(err);
 });
