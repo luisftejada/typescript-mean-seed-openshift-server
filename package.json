@@ -34,5 +34,8 @@
   },
   "bundleDependencies": [],
   "private": true,
-  "main": "server.js"
+  "main": "./dist/server.js",
+  "scripts": {
+      "start" : "node ./dist/server.js"
+  }
 }
