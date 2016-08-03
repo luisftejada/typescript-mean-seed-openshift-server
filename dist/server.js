@@ -1,12 +1,16 @@
 #!/bin/env node
-var app = require('./app');
+"use strict";
+var app_1 = require('./app');
+/**
+ * Module dependencies.
+ */
 var debug = require('debug')('Server');
 var http = require('http');
 /**
  * Get port from environment and store in Express.
  */
 var ipaddress = process.env.OPENSHIFT_NODEJS_IP ||
-    process.env.OPENSHIFT_INTERNAL_IP;
+    process.env.OPENSHIFT_INTERNAL_IP || "undefined";
 var port = process.env.OPENSHIFT_NODEJS_PORT ||
     process.env.OPENSHIFT_INTERNAL_PORT || 8080;
 if (ipaddress === "undefined") {
@@ -15,11 +19,11 @@ if (ipaddress === "undefined") {
     console.warn('No OPENSHIFT_*_IP var, using 127.0.0.1');
     ipaddress = "127.0.0.1";
 }
-app.set('port', port);
+app_1.app.set('port', port);
 /**
  * Create HTTP server.
  */
-var server = http.createServer(app);
+var server = http.createServer(app_1.app);
 /**
  * Listen on provided port, on all network interfaces.
  */
@@ -54,6 +58,8 @@ function onError(error) {
 function onListening() {
     var addr = server.address();
     var bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port;
+    var ip = ipaddress || 'http://localhost';
+    console.log("Listening on " + ip + ":" + port);
     debug('Listening on ' + bind);
 }
 //# sourceMappingURL=server.js.map

@@ -1,35 +1,35 @@
 "use strict";
 
-var express = require('express');
-var path = require('path');
-var favicon = require('serve-favicon');
+let express = require('express');
+let path = require('path');
+let favicon = require('serve-favicon');
 // var logger = require('morgan');
 // var cookieParser = require('cookie-parser');
-var bodyParser = require('body-parser');
+let bodyParser = require('body-parser');
 
 // var routes = require('./routes/index');
 
-var app = express();
+let _app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
+_app.set('views', path.join(__dirname, 'views'));
+_app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 // app.use(logger('dev'));
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+_app.use(bodyParser.json());
+_app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+_app.use(express.static(path.join(__dirname, 'public')));
 
 // app.use('/', routes);
 
-app.get('/env', function (req, res) {
+_app.get('/env', (req, res) => {
   var content = 'Version: ' + process.version + '\n<br/>\n' +
     'Env: {<br/>\n<pre>';
   //  Add env entries.
-  for (var k in process.env) {
+  for (let k of process.env) {
     content += '   ' + k + ': ' + process.env[k] + '\n';
   }
   content += '}\n</pre><br/>\n';
@@ -42,7 +42,7 @@ class HttpError extends Error {
     status;
 }
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+_app.use((req, res, next) => {
   var err = new HttpError('Not Found');
   err.status = 404;
   next(err);
@@ -52,8 +52,8 @@ app.use(function(req, res, next) {
 
 // development error handler
 // will print stacktrace
-if (app.get('env') === 'development') {
-  app.use(function(err, req, res, next) {
+if (_app.get('env') === 'development') {
+  _app.use((err, req, res, next) => {
     res.status(err.status || 500);
     res.render('error', {
       message: err.message,
@@ -64,7 +64,7 @@ if (app.get('env') === 'development') {
 
 // production error handler
 // no stacktraces leaked to user
-app.use(function(err, req, res, next) {
+_app.use((err, req, res, next) => {
   res.status(err.status || 500);
   res.render('error', {
     message: err.message,
@@ -72,5 +72,5 @@ app.use(function(err, req, res, next) {
   });
 });
 
-
-module.exports = app;
+export const app = _app
+// module.exports = app;
