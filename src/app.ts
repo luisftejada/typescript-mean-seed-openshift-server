@@ -11,8 +11,13 @@ let bodyParser = require('body-parser');
 
 let _app = express();
 
+// Determine what is the current __dirname folder
+let myPath = process.argv[1];
+let parts = myPath.split("/");
+let myFolder = parts.slice(0,parts.length-1).join("/")
+
 // view engine setup
-_app.set('views', path.join(__dirname, 'views'));
+_app.set('views', path.join(myFolder, 'views'));
 _app.set('view engine', 'jade');
 
 // uncomment after placing your favicon in /public
@@ -21,7 +26,7 @@ _app.set('view engine', 'jade');
 _app.use(bodyParser.json());
 _app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(cookieParser());
-_app.use(express.static(path.join(__dirname, 'public')));
+_app.use(express.static(path.join(myFolder, 'public')));
 
 // app.use('/', routes);
 

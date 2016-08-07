@@ -1,0 +1,11 @@
+{
+  "globalDevDependencies": {
+    "jasmine": "registry:dt/jasmine#2.2.0+20160621224255"
+  },
+  "dependencies": {
+    "mongoose": "registry:npm/mongoose#4.3.5+20160628072220"
+  },
+  "globalDependencies": {
+    "node-4": "registry:dt/node-4#4.0.0+20160801161248"
+  }
+}

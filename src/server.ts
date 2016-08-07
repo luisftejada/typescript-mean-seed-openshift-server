@@ -1,4 +1,4 @@
-#!/bin/env node
+/// <reference path="../typings/index.d.ts" />
 import { app } from './app';
 /**
  * Module dependencies.
