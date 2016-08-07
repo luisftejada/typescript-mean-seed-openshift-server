@@ -29,8 +29,10 @@
     "fs": "0.0.2",
     "http": "0.0.0",
     "jade": "^1.11.0",
+    "jsonwebtoken": "^7.1.7",
     "mongodb": "^2.2.5",
     "mongoose": "^4.5.8",
+    "password-hash": "^1.2.2",
     "path": "^0.12.7",
     "serve-favicon": "^2.3.0"
   },

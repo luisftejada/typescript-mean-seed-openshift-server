@@ -1,4 +1,5 @@
 "use strict";
+import { api } from './routes';
 
 let express = require('express');
 let path = require('path');
@@ -28,6 +29,7 @@ _app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(cookieParser());
 _app.use(express.static(path.join(myFolder, 'public')));
 
+_app.use('/api', api);
 // app.use('/', routes);
 
 _app.get('/env', (req, res) => {
