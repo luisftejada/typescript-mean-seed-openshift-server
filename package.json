@@ -26,11 +26,28 @@
   "dependencies": {
     "body-parser": "^1.14.1",
     "express": "^4.13.3",
+    "fs": "0.0.2",
+    "http": "0.0.0",
     "jade": "^1.11.0",
+    "mongodb": "^2.2.5",
+    "mongoose": "^4.5.8",
+    "path": "^0.12.7",
     "serve-favicon": "^2.3.0"
   },
   "devDependencies": {
+    "chai": "^3.5.0",
     "copy-webpack-plugin": "^3.0.1",
+    "karma": "^0.13.19",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.2.1",
+    "karma-phantomjs-launcher": "^1.0.0",
+    "karma-sinon": "^1.0.4",
+    "karma-typescript-preprocessor2": "^1.1.1",
+    "karma-verbose-reporter": "0.0.3",
+    "karma-webpack": "^1.7.0",
+    "mocha": "^2.4.5",
+    "phantomjs-prebuilt": "^2.1.3",
+    "sinon": "^1.17.3",
     "debug": "^2.2.0",
     "ts-loader": "^0.8.2",
     "typings": "^1.3.2"

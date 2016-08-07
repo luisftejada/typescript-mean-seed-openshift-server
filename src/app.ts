@@ -43,6 +43,10 @@ _app.get('/env', (req, res) => {
     '  <body>\n<br/>\n' + content + '</body>\n</html>');
 });
 
+_app.get('/', (req, res) => {
+  res.sendFile("index.html", { root: path.join(__dirname, 'public')})
+})
+
 class HttpError extends Error {
     status;
 }
@@ -57,25 +61,26 @@ _app.use((req, res, next) => {
 
 // development error handler
 // will print stacktrace
-if (_app.get('env') === 'development') {
-  _app.use((err, req, res, next) => {
-    res.status(err.status || 500);
-    res.render('error', {
-      message: err.message,
-      error: err
-    });
-  });
-}
-
+// if (_app.get('env') === 'development') {
+//   _app.use((err, req, res, next) => {
+//     res.status(err.status || 500);
+//     res.render('error', {
+//       message: err.message,
+//       error: err
+//     });
+//   });
+// }
+//
 // production error handler
 // no stacktraces leaked to user
-_app.use((err, req, res, next) => {
-  res.status(err.status || 500);
-  res.render('error', {
-    message: err.message,
-    error: {}
-  });
-});
+// _app.use((err, req, res, next) => {
+//   res.status(err.status || 500);
+//   res.send(err.message)
+  // res.render('error', {
+  //   message: err.message,
+  //   error: {}
+  //});
+//});
 
 export const app = _app
 // module.exports = app;

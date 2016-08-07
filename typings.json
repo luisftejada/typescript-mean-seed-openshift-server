@@ -6,6 +6,12 @@
     "mongoose": "registry:npm/mongoose#4.3.5+20160628072220"
   },
   "globalDependencies": {
-    "node-4": "registry:dt/node-4#4.0.0+20160801161248"
+    "node-4": "registry:dt/node-4#4.0.0+20160801161248",
+    "assertion-error": "github:DefinitelyTyped/DefinitelyTyped/assertion-error/assertion-error.d.ts#5d0f2126c8dac8fce0ff020218aea06607213b0d",
+    "chai": "github:DefinitelyTyped/DefinitelyTyped/chai/chai.d.ts#5d0f2126c8dac8fce0ff020218aea06607213b0d",
+    "jasmine": "registry:dt/jasmine#2.2.0+20160621224255",
+    "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#717a5fdb079f8dd7c19f1b22f7f656dd990f0ccf",
+    "node-4": "registry:dt/node-4#4.0.0+20160801161248",
+    "sinon": "github:DefinitelyTyped/DefinitelyTyped/sinon/sinon.d.ts#717a5fdb079f8dd7c19f1b22f7f656dd990f0ccf"
   }
 }

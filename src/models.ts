@@ -55,7 +55,8 @@ let userSchema = new mongoose.Schema({
 
 export interface UserDoc extends BaseUser, mongoose.Document {};
 
-export const Users: mongoose.Model<any> = db.model<UserDoc>('Users', userSchema);
+export const Users: mongoose.Model<any> = db.model<UserDoc>('Users',
+  userSchema);
 
 export const toUser = (userDoc: UserDoc): User => {
   let newUser = new User();
@@ -65,7 +66,7 @@ export const toUser = (userDoc: UserDoc): User => {
   return newUser;
 }
 
-export const createUser = (newUser: IUser, callback) => {
+export const createUser = (newUser: IUser, callback:any) => {
   let baseUser = new BaseUser(newUser);
   Users.create(baseUser, (err, created_user: UserDoc) => {
     if (err) { callback(err) }
@@ -73,7 +74,3 @@ export const createUser = (newUser: IUser, callback) => {
     callback(null, newUser)
   })
 }
-
-// export const createUser = _createUser;
-// export const toUser = _toUser;
-// export const Users = _Users;

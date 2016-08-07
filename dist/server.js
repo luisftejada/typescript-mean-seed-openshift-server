@@ -114,7 +114,7 @@
 /* 1 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	/* WEBPACK VAR INJECTION */(function(__dirname) {"use strict";
 	var __extends = (this && this.__extends) || function (d, b) {
 	    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
 	    function __() { this.constructor = d; }
@@ -156,6 +156,9 @@
 	        '  <head><title>Node.js Process Env</title></head>\n' +
 	        '  <body>\n<br/>\n' + content + '</body>\n</html>');
 	});
+	_app.get('/', function (req, res) {
+	    res.sendFile("index.html", { root: path.join(__dirname, 'public') });
+	});
 	var HttpError = (function (_super) {
 	    __extends(HttpError, _super);
 	    function HttpError() {
@@ -172,27 +175,30 @@
 	// error handlers
 	// development error handler
 	// will print stacktrace
-	if (_app.get('env') === 'development') {
-	    _app.use(function (err, req, res, next) {
-	        res.status(err.status || 500);
-	        res.render('error', {
-	            message: err.message,
-	            error: err
-	        });
-	    });
-	}
+	// if (_app.get('env') === 'development') {
+	//   _app.use((err, req, res, next) => {
+	//     res.status(err.status || 500);
+	//     res.render('error', {
+	//       message: err.message,
+	//       error: err
+	//     });
+	//   });
+	// }
+	//
 	// production error handler
 	// no stacktraces leaked to user
-	_app.use(function (err, req, res, next) {
-	    res.status(err.status || 500);
-	    res.render('error', {
-	        message: err.message,
-	        error: {}
-	    });
-	});
+	// _app.use((err, req, res, next) => {
+	//   res.status(err.status || 500);
+	//   res.send(err.message)
+	// res.render('error', {
+	//   message: err.message,
+	//   error: {}
+	//});
+	//});
 	exports.app = _app;
 	// module.exports = app;
 
+	/* WEBPACK VAR INJECTION */}.call(exports, "/"))
 
 /***/ },
 /* 2 */
